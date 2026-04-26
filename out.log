@@ -1,0 +1,100 @@
+﻿zerone_backend  |   constraint: undefined,
+zerone_backend  |   file: 'parse_relation.c',
+zerone_backend  |   line: '1392',
+zerone_backend  |   routine: 'parserOpenTable'
+zerone_backend  | }
+zerone_backend  | error: relation "judge_config" does not exist
+zerone_backend  |     at /app/node_modules/pg-pool/index.js:45:11
+zerone_backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+zerone_backend  |     at async /app/routes/rounds.js:33:7 {
+zerone_backend  |   length: 110,
+zerone_backend  |   severity: 'ERROR',
+zerone_backend  |   code: '42P01',
+zerone_backend  |   detail: undefined,
+zerone_backend  |   hint: undefined,
+zerone_backend  |   position: '8',
+zerone_backend  |   internalPosition: undefined,
+zerone_backend  |   internalQuery: undefined,
+zerone_backend  |   where: undefined,
+zerone_backend  |   schema: undefined,
+zerone_backend  |   table: undefined,
+zerone_backend  |   column: undefined,
+zerone_backend  |   dataType: undefined,
+zerone_backend  |   constraint: undefined,
+zerone_backend  |   file: 'parse_relation.c',
+zerone_backend  |   line: '1392',
+zerone_backend  |   routine: 'parserOpenTable'
+zerone_backend  | }
+zerone_backend  | error: relation "judge_config" does not exist
+zerone_backend  |     at /app/node_modules/pg-pool/index.js:45:11
+zerone_backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+zerone_backend  |     at async /app/routes/rounds.js:33:7 {
+zerone_backend  |   length: 110,
+zerone_backend  |   severity: 'ERROR',
+zerone_backend  |   code: '42P01',
+zerone_backend  |   detail: undefined,
+zerone_backend  |   hint: undefined,
+zerone_backend  |   position: '8',
+zerone_backend  |   internalPosition: undefined,
+zerone_backend  |   internalQuery: undefined,
+zerone_backend  |   where: undefined,
+zerone_backend  |   schema: undefined,
+zerone_backend  |   table: undefined,
+zerone_backend  |   column: undefined,
+zerone_backend  |   dataType: undefined,
+zerone_backend  |   constraint: undefined,
+zerone_backend  |   file: 'parse_relation.c',
+zerone_backend  |   line: '1392',
+zerone_backend  |   routine: 'parserOpenTable'
+zerone_backend  | }
+zerone_backend  | error: relation "judge_config" does not exist
+zerone_backend  |     at /app/node_modules/pg-pool/index.js:45:11
+zerone_backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+zerone_backend  |     at async /app/routes/rounds.js:33:7 {
+zerone_backend  |   length: 110,
+zerone_backend  |   severity: 'ERROR',
+zerone_backend  |   code: '42P01',
+zerone_backend  |   detail: undefined,
+zerone_backend  |   hint: undefined,
+zerone_backend  |   position: '8',
+zerone_backend  |   internalPosition: undefined,
+zerone_backend  |   internalQuery: undefined,
+zerone_backend  |   where: undefined,
+zerone_backend  |   schema: undefined,
+zerone_backend  |   table: undefined,
+zerone_backend  |   column: undefined,
+zerone_backend  |   dataType: undefined,
+zerone_backend  |   constraint: undefined,
+zerone_backend  |   file: 'parse_relation.c',
+zerone_backend  |   line: '1392',
+zerone_backend  |   routine: 'parserOpenTable'
+zerone_backend  | }
+zerone_backend  | /app/node_modules/pg-pool/index.js:45
+zerone_backend  |     Error.captureStackTrace(err)
+zerone_backend  |           ^
+zerone_backend  | 
+zerone_backend  | error: relation "failed_startup_obituaries" does not exist
+zerone_backend  |     at /app/node_modules/pg-pool/index.js:45:11
+zerone_backend  |     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+zerone_backend  |     at async /app/routes/rounds.js:64:20 {
+zerone_backend  |   length: 124,
+zerone_backend  |   severity: 'ERROR',
+zerone_backend  |   code: '42P01',
+zerone_backend  |   detail: undefined,
+zerone_backend  |   hint: undefined,
+zerone_backend  |   position: '15',
+zerone_backend  |   internalPosition: undefined,
+zerone_backend  |   internalQuery: undefined,
+zerone_backend  |   where: undefined,
+zerone_backend  |   schema: undefined,
+zerone_backend  |   table: undefined,
+zerone_backend  |   column: undefined,
+zerone_backend  |   dataType: undefined,
+zerone_backend  |   constraint: undefined,
+zerone_backend  |   file: 'parse_relation.c',
+zerone_backend  |   line: '1392',
+zerone_backend  |   routine: 'parserOpenTable'
+zerone_backend  | }
+zerone_backend  | 
+zerone_backend  | Node.js v25.9.0
+zerone_backend  | [31m[nodemon] app crashed - waiting for file changes before starting...[39m

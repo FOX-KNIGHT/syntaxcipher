@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SYNTAXCIPHER CHAMPION — Genesis Wallet Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=VT323&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body, #root { height: 100%; background: #000a00; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: #003311; border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: #00cc33; }
+    .scanline-overlay {
+      position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+      background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.04) 2px,rgba(0,0,0,.04) 4px);
+    }
+    .scanline-bar {
+      position: fixed; left:0; top:0; width:100%; height:2px;
+      background: linear-gradient(transparent,rgba(0,255,65,.06),transparent);
+      animation: scanline 8s linear infinite; pointer-events: none; z-index: 9998;
+    }
+    @keyframes scanline { 0%{ transform:translateY(-100%); } 100%{ transform:translateY(100vh); } }
+    .panel {
+      background: rgba(2,15,2,.9);
+      border: 1px solid rgba(0,255,65,.18);
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+      position: relative; backdrop-filter: blur(4px);
+    }
+    .panel::before { content:''; position:absolute; top:0; left:0; width:24px; height:24px; border-top:2px solid #00ff41; border-left:2px solid #00ff41; }
+    .panel::after  { content:''; position:absolute; bottom:0; right:0; width:24px; height:24px; border-bottom:2px solid #00ff41; border-right:2px solid #00ff41; }
+    .panel-y { background:rgba(10,8,0,.9); border:1px solid rgba(255,215,0,.2); clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px)); position:relative; }
+    .panel-y::before { content:''; position:absolute; top:0; left:0; width:24px; height:24px; border-top:2px solid #ffd700; border-left:2px solid #ffd700; }
+    .panel-y::after  { content:''; position:absolute; bottom:0; right:0; width:24px; height:24px; border-bottom:2px solid #ffd700; border-right:2px solid #ffd700; }
+    .panel-r { background:rgba(10,0,0,.9); border:1px solid rgba(255,0,48,.2); clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px)); position:relative; }
+    .panel-r::before { content:''; position:absolute; top:0; left:0; width:24px; height:24px; border-top:2px solid #ff0030; border-left:2px solid #ff0030; }
+    .panel-r::after  { content:''; position:absolute; bottom:0; right:0; width:24px; height:24px; border-bottom:2px solid #ff0030; border-right:2px solid #ff0030; }
+    .panel-c { background:rgba(0,8,12,.9); border:1px solid rgba(0,245,255,.2); clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px)); position:relative; }
+    .panel-c::before { content:''; position:absolute; top:0; left:0; width:24px; height:24px; border-top:2px solid #00f5ff; border-left:2px solid #00f5ff; }
+    .panel-c::after  { content:''; position:absolute; bottom:0; right:0; width:24px; height:24px; border-bottom:2px solid #00f5ff; border-right:2px solid #00f5ff; }
+    .btn-g { background:transparent; border:1px solid #00ff41; color:#00ff41; padding:10px 22px; cursor:pointer; font-family:'Share Tech Mono',monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); transition:all .2s; position:relative; overflow:hidden; }
+    .btn-g::before { content:''; position:absolute; inset:0; background:#00ff41; transform:translateX(-101%); transition:transform .2s; }
+    .btn-g:hover { color:#000; }
+    .btn-g:hover::before { transform:translateX(0); }
+    .btn-g span { position:relative; z-index:1; }
+    .btn-y { background:transparent; border:1px solid #ffd700; color:#ffd700; padding:10px 22px; cursor:pointer; font-family:'Share Tech Mono',monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); transition:all .2s; position:relative; overflow:hidden; }
+    .btn-y::before { content:''; position:absolute; inset:0; background:#ffd700; transform:translateX(-101%); transition:transform .2s; }
+    .btn-y:hover { color:#000; }
+    .btn-y:hover::before { transform:translateX(0); }
+    .btn-y span { position:relative; z-index:1; }
+    .btn-r { background:transparent; border:1px solid #ff0030; color:#ff0030; padding:10px 22px; cursor:pointer; font-family:'Share Tech Mono',monospace; font-size:13px; letter-spacing:2px; text-transform:uppercase; clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%); transition:all .2s; position:relative; overflow:hidden; }
+    .btn-r::before { content:''; position:absolute; inset:0; background:#ff0030; transform:translateX(-101%); transition:transform .2s; }
+    .btn-r:hover { color:#000; }
+    .btn-r:hover::before { transform:translateX(0); }
+    .btn-r span { position:relative; z-index:1; }
+    .inp { background:rgba(0,20,0,.6); border:1px solid rgba(0,255,65,.3); color:#00ff41; padding:12px 16px; font-family:'Share Tech Mono',monospace; font-size:14px; outline:none; width:100%; transition:border .2s,box-shadow .2s; clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%); }
+    .inp:focus { border-color:#00ff41; box-shadow:0 0 12px rgba(0,255,65,.3); }
+    .inp::placeholder { color:rgba(0,255,65,.3); }
+    .inp-y { background:rgba(10,8,0,.6); border:1px solid rgba(255,215,0,.3); color:#ffd700; }
+    .inp-y:focus { border-color:#ffd700; box-shadow:0 0 12px rgba(255,215,0,.3); }
+    .tag { display:inline-block; padding:2px 10px; font-size:10px; letter-spacing:2px; text-transform:uppercase; border:1px solid; font-family:'Share Tech Mono',monospace; }
+    .tag-g { border-color:rgba(0,255,65,.5); color:#00ff41; background:rgba(0,255,65,.08); }
+    .tag-y { border-color:rgba(255,215,0,.5); color:#ffd700; background:rgba(255,215,0,.08); }
+    .tag-r { border-color:rgba(255,0,48,.5); color:#ff0030; background:rgba(255,0,48,.08); }
+    .tag-c { border-color:rgba(0,245,255,.5); color:#00f5ff; background:rgba(0,245,255,.08); }
+    .tag-p { border-color:rgba(191,0,255,.5); color:#bf00ff; background:rgba(191,0,255,.08); }
+    .wallet-num { font-family:'Orbitron',monospace; font-weight:700; }
+    .head-font  { font-family:'Orbitron',monospace; }
+    .mono-font  { font-family:'Share Tech Mono',monospace; }
+    .vt-font    { font-family:'VT323',monospace; }
+    @keyframes pulseGreen { 0%,100%{box-shadow:0 0 8px #00ff41,0 0 20px rgba(0,255,65,.2)} 50%{box-shadow:0 0 20px #00ff41,0 0 40px rgba(0,255,65,.4)} }
+    @keyframes pulseYellow { 0%,100%{box-shadow:0 0 8px #ffd700,0 0 20px rgba(255,215,0,.2)} 50%{box-shadow:0 0 20px #ffd700,0 0 40px rgba(255,215,0,.4)} }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes slideIn { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
+    @keyframes blink { 50%{opacity:0} }
+    @keyframes glitch { 0%,95%,100%{clip-path:none;transform:translate(0)} 96%{clip-path:polygon(0 20%,100% 20%,100% 40%,0 40%);transform:translate(-3px,0)} 97%{clip-path:polygon(0 60%,100% 60%,100% 70%,0 70%);transform:translate(3px,0)} }
+    .anim-fadeIn  { animation:fadeIn .4s ease both; }
+    .anim-slideIn { animation:slideIn .3s ease both; }
+    .anim-blink   { animation:blink 1s step-end infinite; }
+    .anim-glitch  { animation:glitch 6s infinite; }
+    .pulse-g { animation:pulseGreen 2s ease-in-out infinite; }
+    .pulse-y { animation:pulseYellow 2s ease-in-out infinite; }
+    .progress-bar { height:6px; background:rgba(0,255,65,.1); overflow:hidden; clip-path:polygon(0 0,calc(100% - 4px) 0,100% 4px,100% 100%,0 100%); }
+    .progress-fill { height:100%; background:linear-gradient(90deg,#00cc33,#00ff41); box-shadow:0 0 8px #00ff41; transition:width .6s ease; }
+  </style>
+</head>
+<body>
+  <div class="scanline-overlay"></div>
+  <div class="scanline-bar"></div>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

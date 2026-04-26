@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: syntaxcipher_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: judge2024
+      POSTGRES_DB: syntaxcipher_db
+    volumes:
+      - ./backend/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: syntaxcipher_backend
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+      - DATABASE_URL=postgresql://postgres:judge2024@db:5432/syntaxcipher_db
+      - JWT_SECRET=syntaxcipher_super_secret_key_change_in_production
+      - JUDGE_PASSWORD=judge2024
+      - CORS_ORIGIN=http://localhost:5173
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: syntaxcipher_frontend
+    environment:
+      - VITE_API_PROXY=http://backend:4000
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
